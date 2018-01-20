@@ -49,12 +49,12 @@
 	<tbody>
 		{% for(var i=0, l=data.length; i<l; i++) { %}
 			<tr>
-				<td>{%= data[i]["Date"] %}</td>
-				<td>{%= data[i]["Tax ID"] %}</td>
-				<td>{%= data[i]["Tax File"] %}</td>
-				<td>{%= data[i]["Address"] %}</td>
-				<td>{%= data[i]["Tax Value"] %}</td>
-				<td>{%= data[i]["Arabic Name"] %}</td>
+				<td class="text-right">{%= data[i]["Date"] %}</td>
+				<td class="text-right">{%= data[i]["Tax ID"] %}</td>
+				<td class="text-right">{%= data[i]["Tax File"] %}</td>
+				<td class="text-right">{%= data[i]["Address"] %}</td>
+				<td class="text-right">{%= data[i]["Tax Value"] %}</td>
+				<td class="text-right">{%= data[i]["Arabic Name"] %}</td>
 			</tr>
 		{% } %}
 	</tbody>
