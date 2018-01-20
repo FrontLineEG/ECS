@@ -32,29 +32,34 @@
 			<td class="text-left">تليفون الجهة</td>
 			<td class="text-right">:كود نوع الجهــة</td>
 		</tr>
+		<tr>
+			<td colspan="3" class="text-right">الارشادات خلف الصفحة الرجاء قرائتها قبل استيفاء النموذج</td>
+		</tr>
 	</tbody>
 </table>
 
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th style="width: 15%">{%= __("التاريخ") %}</th>
-			<th style="width: 15%">{%= __("رقم التسجيل الضريبى") %}</th>
-			<th style="width: 15%">{%= __("رقم الملف") %}</th>
 			<th style="width: 15%">{%= __("العنوان") %}</th>
-			<th style="width: 15%">{%= __("القيمه الضريبيه") %}</th>
 			<th style="width: 20%">{%= __("أسم الممول") %}</th>
+			<th style="width: 15%">{%= __("رقم الملف") %}</th>
+			<th style="width: 15%">{%= __("رقم التسجيل الضريبى") %}</th>
+			<th style="width: 15%">{%= __("التاريخ") %}</th>
+			<th style="width: 15%">{%= __("القيمه الضريبيه") %}</th>
+
 		</tr>
 	</thead>
 	<tbody>
 		{% for(var i=0, l=data.length; i<l; i++) { %}
 			<tr>
-				<td class="text-right">{%= data[i]["Date"] %}</td>
-				<td class="text-right">{%= data[i]["Tax ID"] %}</td>
-				<td class="text-right">{%= data[i]["Tax File"] %}</td>
 				<td class="text-right">{%= data[i]["Address"] %}</td>
-				<td class="text-right">{%= data[i]["Tax Value"] %}</td>
 				<td class="text-right">{%= data[i]["Arabic Name"] %}</td>
+				<td class="text-right">{%= data[i]["Tax File"] %}</td>
+				<td class="text-right">{%= data[i]["Tax ID"] %}</td>
+				<td class="text-right">{%= data[i]["Date"] %}</td>
+				<td class="text-right">{%= data[i]["Tax Value"] %}</td>
+
 			</tr>
 		{% } %}
 	</tbody>
