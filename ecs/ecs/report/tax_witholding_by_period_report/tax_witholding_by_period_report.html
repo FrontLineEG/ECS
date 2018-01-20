@@ -1,0 +1,71 @@
+<div style="margin-bottom: 7px;">
+	{%= frappe.boot.letter_heads[frappe.defaults.get_default("letter_head")] %}
+</div>
+<h2 class="text-center">{%= __("Tax Witholding By Period Report") %}</h2>
+<h4 class="text-center">{%= (filters.from_date + " To " + filters.to_date)  || "" %}</h4>
+<hr>
+
+<table width="100%" border="0">
+	<tbody>
+		<tr>
+			<td colspan="3" class="text-right">وزارة المالية</td>
+		</tr>
+		<tr>
+			<td colspan="3" class="text-right">مصلحة الضرائب العامة</td>
+		</tr>
+		<tr>
+			<td colspan="3" class="text-right">:رقم المستنــــــــد</td>
+		</tr>
+		<tr>
+			<td colspan="3" class="text-right">:رقم الجهــــــــــة</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="text-center">شركة إى سى أس للطاقة والمقاولات </td>
+			<td class="text-right">:اسم الجهـــــــــة</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="text-center">25 شارع عشرة ميدان المحطة المعادى-القاهرة</td>
+			<td class="text-right">:عنوا ن الجهــــة</td>
+		</tr>
+		<tr>
+			<td class="text-right">0223586740</td>
+			<td class="text-left">تليفون الجهة</td>
+			<td class="text-right">:كود نوع الجهــة</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th style="width: 15%">{%= __("التاريخ") %}</th>
+			<th style="width: 15%">{%= __("رقم التسجيل الضريبى") %}</th>
+			<th style="width: 15%">{%= __("رقم الملف") %}</th>
+			<th style="width: 15%">{%= __("العنوان") %}</th>
+			<th style="width: 15%">{%= __("القيمه الضريبيه") %}</th>
+			<th style="width: 20%">{%= __("أسم الممول") %}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for(var i=0, l=data.length; i<l; i++) { %}
+			<tr>
+				<td>{%= data[i]["Date"] %}</td>
+				<td>{%= data[i]["Tax ID"] %}</td>
+				<td>{%= data[i]["Tax File"] %}</td>
+				<td>{%= data[i]["Address"] %}</td>
+				<td>{%= data[i]["Tax Value"] %}</td>
+				<td>{%= data[i]["Arabic Name"] %}</td>
+			</tr>
+		{% } %}
+	</tbody>
+</table>
+<br/>
+<table width="100%" border="0">
+	<tbody>
+			<tr>
+				<td colspan="6" class="text-center">الموظف المختص</td>
+			</tr>
+	</tbody>
+</table>
+<br/>
+<p class="text-right text-muted">Printed On {%= dateutil.str_to_user(dateutil.get_datetime_as_string()) %}</p>
