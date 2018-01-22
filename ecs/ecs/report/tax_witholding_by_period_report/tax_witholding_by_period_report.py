@@ -22,7 +22,7 @@ def validate_filters(filters):
 
 def get_columns(filters):
 	columns = [
-		_("Arabic Name") + ":Data:300",
+		_("Serial") + ":Data:100", _("Arabic Name") + ":Data:300",
 		_("Date") + ":Date:100", _("Tax ID") + ":Data:140",
 		_("Tax File") + ":Data:100", _("Address") + ":Data:300",  _("Tax Value") + ":Data:100",
 	]
@@ -38,7 +38,8 @@ def get_result(filters):
 def get_data(filters):
 	query = """
 	select 
-		 `tabGL Entry`.posting_date
+		 `tabGL Entry`.name
+		,`tabGL Entry`.posting_date
 		,`tabSupplier`.arabic_name
 		,`tabSupplier`.tax_id
 		,`tabSupplier`.tax_file_number
@@ -67,7 +68,7 @@ def get_result_as_list(data):
 	result = []
 	for d in data:
 		row = [
-			d.get("arabic_name"), d.get("posting_date"), d.get("tax_id"),
+			d.get("name"), d.get("arabic_name"), d.get("posting_date"), d.get("tax_id"),
 			d.get("tax_file_number"), d.get("address_line1"), d.get("credit_debit")
 		]
 		result.append(row)
