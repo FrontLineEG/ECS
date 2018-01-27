@@ -29,6 +29,18 @@ frappe.query_reports["Tax Witholding By Period Report"] = {
                     "label": __("Branch"),
                     "fieldtype": "Data",
                     "reqd": 0
+                },
+                {
+                    "fieldname":"check",
+                    "label": __("Check No"),
+                    "fieldtype": "Data",
+                    "reqd": 0
+                },
+                {
+                    "fieldname":"namozag",
+                    "label": __("Namozag No"),
+                    "fieldtype": "Data",
+                    "reqd": 0
                 }
         ]
 }

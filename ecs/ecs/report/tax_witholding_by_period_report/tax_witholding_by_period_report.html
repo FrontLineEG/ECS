@@ -19,21 +19,21 @@
 		<tr>
 			<td colspan="2">{%= data[data.length-1]["Tax Value"] %}</td>
 			<td colspan="3">بمبلغ </td>
-			<td colspan="5">مرفق مع هذا الشيك رقم</td>
+			<td colspan="2" class="text-right">{%= filters.check %}</td>
+			<td colspan="3">مرفق مع هذا الشيك رقم</td>
 			<td colspan="2"></td>
 			<td colspan="5" class="text-right">:رقم الجهــــــــــة</td>
 		</tr>
 		<tr>
-			<td colspan="6"></td>
-			<td colspan="5">باجمالى فقط</td>
+			<td colspan="11"></td>
 			<td colspan="4" class="text-right">شركة إى سى أس للطاقة والمقاولات </td>
 			<td colspan="2" class="text-right">:اسم الجهـــــــــة</td>
 		</tr>
 		<tr>
-			<td colspan="3" class="text-right">{%= dateutil.str_to_user(filters.from_date) %}</td>
+			<td colspan="3" class="text-right">{%= dateutil.str_to_user(filters.to_date) %}</td>
 			<td colspan="2"> إلى </td>
 			<td colspan="3" class="text-right">
-				{%= dateutil.str_to_user(filters.to_date) %}
+				{%= dateutil.str_to_user(filters.from_date) %}
 			</td>
 			<td colspan="2">بتاريخ: من </td>
 			<td colspan="5" class="text-right">25 شارع عشرة ميدان المحطة المعادى-القاهرة</td>
@@ -49,13 +49,10 @@
 			<td colspan="2" class="text-right">:كود نوع الجهــة</td>
 		</tr>
 		<tr>
-			<td colspan="4">نموذج</td>
-			<td colspan="3"></td>
-			<td colspan="5">قيمة المبلغ المحصلة من الممولين طبقا للنموذج / والنماذج المرفقة وعددها</td>
+			<td colspan="7" class="text-right">نموذج</td>
+			<td colspan="2">{%= filters.namozag %}</td>
+			<td colspan="3">قيمة المبلغ المحصلة من الممولين طبقا للنموذج / والنماذج المرفقة وعددها</td>
 			<td colspan="5"></td>
-		</tr>
-		<tr>
-			<td colspan="17" class="text-right">الارشادات خلف الصفحة الرجاء قرائتها قبل استيفاء النموذج</td>
 		</tr>
 	</tbody>
 </table>
@@ -63,12 +60,12 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th style="width: 15%">{%= __("المحصل لحساب الضريبة") %}</th>
-			<th style="width: 20%">{%= __("العنوان") %}</th>
-			<th style="width: 20%">{%= __("أسم الممول") %}</th>
-			<th style="width: 15%">{%= __("رقم الملف") %}</th>
-			<th style="width: 20%">{%= __("رقم التسجيل الضريبى") %}</th>
-			<th style="width: 10%">مسلسل</th>
+			<th style="width: 15%" class="text-center">{%= __("المحصل لحساب الضريبة") %}</th>
+			<th style="width: 20%" class="text-center">{%= __("العنوان") %}</th>
+			<th style="width: 20%" class="text-center">{%= __("أسم الممول") %}</th>
+			<th style="width: 15%" class="text-center">{%= __("رقم الملف") %}</th>
+			<th style="width: 20%" class="text-center">{%= __("رقم التسجيل الضريبى") %}</th>
+			<th style="width: 10%" class="text-center">مسلسل</th>
 		</tr>
 	</thead>
 	<tbody>
