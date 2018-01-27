@@ -22,7 +22,7 @@ def validate_filters(filters):
 
 def get_columns(filters):
 	columns = [
-		_("Serial") + ":Data:100", _("Arabic Name") + ":Data:300",
+		_("Arabic Name") + ":Data:300",
 		_("Date") + ":Date:100", _("Tax ID") + ":Data:140",
 		_("Tax File") + ":Data:100", _("Address") + ":Data:300",  _("Tax Value") + ":Data:100",
 	]
@@ -38,8 +38,7 @@ def get_result(filters):
 def get_data(filters):
 	query = """
 	select 
-		 `tabGL Entry`.name
-		,`tabGL Entry`.posting_date
+		`tabGL Entry`.posting_date
 		,`tabSupplier`.arabic_name
 		,`tabSupplier`.tax_id
 		,`tabSupplier`.tax_file_number
@@ -66,12 +65,18 @@ def get_data(filters):
 
 def get_result_as_list(data):
 	result = []
+	total_credit_debit = 0
 	for d in data:
+		total_credit_debit += float(d.get("credit_debit"))
 		row = [
-			d.get("name"), d.get("arabic_name"), d.get("posting_date"), d.get("tax_id"),
+			d.get("arabic_name"), d.get("posting_date"), d.get("tax_id"),
 			d.get("tax_file_number"), d.get("address_line1"), d.get("credit_debit")
 		]
 		result.append(row)
+
+	''' Sum Record'''
+	row = ['', '', '', '', '', "%.2f" % total_credit_debit]
+	result.append(row)
 
 	return result
 

@@ -3,40 +3,48 @@
 <table width="100%" border="0">
 	<tbody>
 		<tr>
-			<td colspan="12">نموذج رقم (41) خصم وأضافة وتحصيل</td>
+			<td colspan="12" class="text-center">نموذج رقم (41) خصم وأضافة وتحصيل</td>
 			<td colspan="5" class="text-right">وزارة المالية</td>
 		</tr>
 		<tr>
 			<td colspan="17" class="text-right">مصلحة الضرائب العامة</td>
 		</tr>
 		<tr>
-			<td colspan="9">السيد الاستاذ رئيس الإدارة المركزية لتجميع نماذج الخصم والأضافة والتحصيل تحت حساب الضريبة بالمصلحة</td>
-			<td colspan="8" class="text-right">:رقم المستنــــــــد</td>
+			<td colspan="17"></td>
 		</tr>
 		<tr>
-			<td colspan="6">مرفق مع هذا الشيك رقم</td>
+			<td colspan="13">السيد الاستاذ رئيس الإدارة المركزية لتجميع نماذج الخصم والأضافة والتحصيل تحت حساب الضريبة بالمصلحة</td>
+			<td colspan="4" class="text-right">:رقم المستنــــــــد</td>
+		</tr>
+		<tr>
+			<td colspan="2">{%= data[data.length-1]["Tax Value"] %}</td>
 			<td colspan="3">بمبلغ </td>
+			<td colspan="5">مرفق مع هذا الشيك رقم</td>
 			<td colspan="2"></td>
-			<td colspan="6" class="text-right">:رقم الجهــــــــــة</td>
+			<td colspan="5" class="text-right">:رقم الجهــــــــــة</td>
 		</tr>
 		<tr>
 			<td colspan="6"></td>
 			<td colspan="5">باجمالى فقط</td>
-			<td colspan="3" class="text-center">شركة إى سى أس للطاقة والمقاولات </td>
-			<td colspan="3" class="text-right">:اسم الجهـــــــــة</td>
+			<td colspan="4" class="text-right">شركة إى سى أس للطاقة والمقاولات </td>
+			<td colspan="2" class="text-right">:اسم الجهـــــــــة</td>
 		</tr>
 		<tr>
-			<td colspan="6"></td>
-			<td colspan="6">بتاريخ</td>
-			<td colspan="3" class="text-center">25 شارع عشرة ميدان المحطة المعادى-القاهرة</td>
+			<td colspan="3" class="text-right">{%= dateutil.str_to_user(filters.from_date) %}</td>
+			<td colspan="2"> إلى </td>
+			<td colspan="3" class="text-right">
+				{%= dateutil.str_to_user(filters.to_date) %}
+			</td>
+			<td colspan="2">بتاريخ: من </td>
+			<td colspan="5" class="text-right">25 شارع عشرة ميدان المحطة المعادى-القاهرة</td>
 			<td colspan="2" class="text-right">:عنوا ن الجهــــة</td>
 		</tr>
 		<tr>
-			<td colspan="3"></td>
+			<td colspan="2" class="text-right">{%= filters.branch %}</td>
 			<td colspan="2">فرع</td>
-			<td colspan="5"></td>
-			<td colspan="2">المسحوب على بنك</td>
-			<td class="text-right">0223586740</td>
+			<td colspan="2" class="text-right">{%= filters.bank %}</td>
+			<td colspan="5">المسحوب على بنك</td>
+			<td colspan="2" class="text-right">0223586740</td>
 			<td colspan="2" class="text-left">تليفون الجهة</td>
 			<td colspan="2" class="text-right">:كود نوع الجهــة</td>
 		</tr>
@@ -55,67 +63,23 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th style="width: 10%">{%= __("المحصل لحساب الضريبة") %}</th>
-			<th style="width: 10%">{%= __("نسبة الخصم%") %}</th>
-			<th style="width: 10%">{%= __("القيمة الصافية للتعامل") %}</th>
-			<th style="width: 10%">{%= __("") %}</th>
-			<th style="width: 10%">{%= __("نوع الخصومات وكودها") %}</th>
-			<th style="width: 10%">{%= __("") %}</th>
-			<th style="width: 10%">{%= __("") %}</th>
-			<th style="width: 10%">{%= __("طبيعة التعامل وكودها") %}</th>
-			<th style="width: 10%">{%= __("") %}</th>
-			<th style="width: 10%">{%= __("") %}</th>
-			<th style="width: 10%">{%= __("المامورية المختصة") %}</th>
-			<th style="width: 10%">{%= __("العنوان") %}</th>
-			<th style="width: 15%">{%= __("أسم الممول") %}</th>
-			<th style="width: 10%">{%= __("رقم الملف") %}</th>
-			<th style="width: 10%">{%= __("رقم التسجيل الضريبى") %}</th>
-			<!-- <th style="width: 10%">{%= __("التاريخ") %}</th> -->
-			<!-- <th style="width: 15%">{%= __("القيمه الضريبيه") %}</th> -->
+			<th style="width: 15%">{%= __("المحصل لحساب الضريبة") %}</th>
+			<th style="width: 20%">{%= __("العنوان") %}</th>
+			<th style="width: 20%">{%= __("أسم الممول") %}</th>
+			<th style="width: 15%">{%= __("رقم الملف") %}</th>
+			<th style="width: 20%">{%= __("رقم التسجيل الضريبى") %}</th>
 			<th style="width: 10%">مسلسل</th>
-			<th style="width: 10%"></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td class="text-right"></td>
-			<td class="text-right"></td>
-			<td class="text-right"></td>
-			<td class="text-right">كود</td>
-			<td class="text-right">نوع الخصم </td>
-			<td class="text-right">القيمة الاجمالية للتعامل</td>
-			<td class="text-right">كود</td>
-			<td class="text-right">ط التعامل</td>
-			<td class="text-right">تاريخ التعامل</td>
-			<td class="text-right">كود</td>
-			<td class="text-right">مامورية ضرائب</td>
-			<td class="text-right"></td>
-			<td class="text-right"></td>
-			<td class="text-right"></td>
-			<td class="text-right"></td>
-			<td class="text-right">السجل التجارى</td>
-			<td class="text-right"></td>
-		</tr>
-		{% for(var i=0, l=data.length; i<l; i++) { %}
+		{% for(var i=0, l=data.length-1; i<l; i++) { %}
 			<tr>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
-				<td class="text-right"></td>
+				<td class="text-right">{%= data[i]["Tax Value"] %}</td>
 				<td class="text-right">{%= data[i]["Address"] %}</td>
 				<td class="text-right">{%= data[i]["Arabic Name"] %}</td>
 				<td class="text-right">{%= data[i]["Tax File"] %}</td>
 				<td class="text-right">{%= data[i]["Tax ID"] %}</td>
-				<!-- <td class="text-right">{%= data[i]["Date"] %}</td> -->
-				<td class="text-right">{%= data[i]["Tax Value"] %}</td>
-				<td class="text-right">{%= data[i]["Serial"] %}</td>
+				<td class="text-right">{%= i+1 %}</td>
 			</tr>
 		{% } %}
 	</tbody>
@@ -124,9 +88,11 @@
 <table width="100%" border="0">
 	<tbody>
 			<tr>
-				<td colspan="17" class="text-center">الموظف المختص</td>
+				<td colspan="1" class="text-right">{%= data[data.length-1]["Tax Value"] %}</td>
+				<td colspan="2" class="text-left">المجموع</td>
+				<td colspan="3" class="text-center">رئيس جهة العمل</td>
+				<td colspan="3" class="text-center">الموظف المختص</td>
 			</tr>
 	</tbody>
 </table>
 <br/>
-<p class="text-right text-muted">Printed On {%= dateutil.str_to_user(dateutil.get_datetime_as_string()) %}</p>

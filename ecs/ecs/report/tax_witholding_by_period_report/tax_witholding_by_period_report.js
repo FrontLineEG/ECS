@@ -17,6 +17,18 @@ frappe.query_reports["Tax Witholding By Period Report"] = {
                     "fieldtype": "Date",
                     "default": get_today(),
                     "reqd": 1
+                },
+                {
+                    "fieldname":"bank",
+                    "label": __("Bank"),
+                    "fieldtype": "Data",
+                    "reqd": 0
+                },
+                {
+                    "fieldname":"branch",
+                    "label": __("Branch"),
+                    "fieldtype": "Data",
+                    "reqd": 0
                 }
         ]
 }
